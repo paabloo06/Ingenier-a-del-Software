@@ -1,0 +1,286 @@
+Error obtaining all superclasses of public class com.booking.dao.ArrendadorDAO extends com.booking.dao.GenericEntity
+filename		C:\Boo-King-2.4.3\bin\com\booking\dao\ArrendadorDAO.class
+compiled from		ArrendadorDAO.java
+compiler version	52.0
+access flags		33
+constant pool		88 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: ArrendadorDAO.java
+	Signature: Lcom/booking/dao/GenericEntity<Lcom/booking/persistencia/Arrendador;>;
+
+4 methods:
+	public void <init>()
+	public java.util.List obtenerPorNombre(String nombre) [Signature: (Ljava/lang/String;)Ljava/util/List<Lcom/booking/persistencia/Arrendador;>;]
+	public com.booking.persistencia.Arrendador obtenerArrendadorPorNombre(String nombre)
+	public int totalArrendadores()
+
+Error obtaining all superclasses of public class com.booking.dao.LibroDAO extends com.booking.dao.GenericEntity
+filename		C:\Boo-King-2.4.3\bin\com\booking\dao\LibroDAO.class
+compiled from		LibroDAO.java
+compiler version	52.0
+access flags		33
+constant pool		21 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: LibroDAO.java
+	Signature: Lcom/booking/dao/GenericEntity<Lcom/booking/persistencia/Libro;>;
+
+1 methods:
+	public void <init>()
+
+Error obtaining all superclasses of public class com.booking.dao.PrestamoDAO extends com.booking.dao.GenericEntity
+filename		C:\Boo-King-2.4.3\bin\com\booking\dao\PrestamoDAO.class
+compiled from		PrestamoDAO.java
+compiler version	52.0
+access flags		33
+constant pool		132 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: PrestamoDAO.java
+	Signature: Lcom/booking/dao/GenericEntity<Lcom/booking/persistencia/Prestamo;>;
+
+7 methods:
+	public void <init>()
+	public java.util.List obtenerPorNombre(String nombre) [Signature: (Ljava/lang/String;)Ljava/util/List<Lcom/booking/persistencia/Prestamo;>;]
+	public int prestamosEnUnAno(int ano)
+		throws Exceptions: com.booking.modelo.BookingException
+	public int librosPrestadosEnUnAno(int ano)
+		throws Exceptions: com.booking.modelo.BookingException
+	public int totalPrestamos()
+	public String fechaPrimerPrestamo()
+	public double mediaLibrosPrestados()
+
+Error obtaining all superclasses of public class com.booking.dao.StackDAO extends com.booking.dao.GenericEntity
+filename		C:\Boo-King-2.4.3\bin\com\booking\dao\StackDAO.class
+compiled from		StackDAO.java
+compiler version	52.0
+access flags		33
+constant pool		58 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: StackDAO.java
+	Signature: Lcom/booking/dao/GenericEntity<Lcom/booking/persistencia/Stack;>;
+
+2 methods:
+	public void <init>()
+	public int totalLibrosPrestados()
+
+Error obtaining all superclasses of public class com.booking.ejecutable.MainGui extends javafx.application.Application
+filename		C:\Boo-King-2.4.3\bin\com\booking\ejecutable\MainGui.class
+compiled from		MainGui.java
+compiler version	52.0
+access flags		33
+constant pool		321 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: MainGui.java
+
+11 fields:
+	private javafx.stage.Stage primaryStage
+	private javafx.scene.layout.BorderPane capaRaiz
+	private javafx.scene.layout.AnchorPane menuPrincipal
+	private javafx.scene.layout.AnchorPane vistaArrendadores
+	private javafx.scene.layout.AnchorPane vistaLibros
+	private javafx.scene.layout.AnchorPane vistaPrestamos
+	private javafx.collections.ObservableList tablaArrendadores [Signature: Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Arrendador;>;]
+	private javafx.collections.ObservableList tablaLibros [Signature: Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Libro;>;]
+	private javafx.collections.ObservableList tablaPrestamos [Signature: Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Prestamo;>;]
+	private com.booking.vista.ControladorPrincipal controladorMain
+	private com.booking.vista.ControladorPrincipal controladorMenu
+
+15 methods:
+	public void <init>()
+	public void start(javafx.stage.Stage primaryStage)
+	public javafx.stage.Stage getPrimaryStage()
+	public static void main(String[] args)
+	public javafx.collections.ObservableList getTablaArrendador() [Signature: ()Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Arrendador;>;]
+	public javafx.collections.ObservableList getTablaLibros() [Signature: ()Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Libro;>;]
+	public javafx.collections.ObservableList getTablaPrestamos() [Signature: ()Ljavafx/collections/ObservableList<Lcom/booking/persistencia/Prestamo;>;]
+	public void iniciarRaiz()
+	public void mostrarMenuPrincipal()
+	public void mostarArrendadores()
+	public void mostrarLibros()
+	public void mostrarPrestamos()
+	public boolean gestionarArrendador(com.booking.persistencia.Arrendador arrendador, boolean nuevo)
+	public boolean gestionarLibro(com.booking.persistencia.Libro libro, boolean nuevo)
+	public boolean gestionarPrestamo(com.booking.persistencia.Prestamo prestamo, boolean nuevo)
+
+Error obtaining all superclasses of public class com.booking.persistencia.Arrendador extends com.booking.persistencia.ObjetoBookingGenerico
+implements		java.io.Serializable
+filename		C:\Boo-King-2.4.3\bin\com\booking\persistencia\Arrendador.class
+compiled from		Arrendador.java
+compiler version	52.0
+access flags		33
+constant pool		201 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: Arrendador.java
+	RuntimeVisibleAnnotations
+
+Annotation(s):
+	@Ljavax/persistence/Entity;
+	@Ljavax/persistence/Table;(name=arrendador)
+
+8 fields:
+	private static final long serialVersionUID = 1
+	private int idArrendador [RuntimeVisibleAnnotations]
+	private String nombre [RuntimeVisibleAnnotations]
+	private String entidad [RuntimeVisibleAnnotations]
+	private String direccion [RuntimeVisibleAnnotations]
+	private String codigoPostal [RuntimeVisibleAnnotations]
+	private String telefono [RuntimeVisibleAnnotations]
+	private java.util.List listaPrestamos [Signature: Ljava/util/List<Lcom/booking/persistencia/Prestamo;>;] [RuntimeVisibleAnnotations]
+
+19 methods:
+	public void <init>()
+	public void <init>(String nombre, String direccion, String codigoPostal, String telefono)
+	public void <init>(String nombre, String entidad, String direccion, String codigoPostal, String telefono)
+	public int getId()
+	public void setId(int id)
+	public String getNombre()
+	public void setNombre(String nombre)
+	public String getEntidad()
+	public void setEntidad(String entidad)
+	public String getDireccion()
+	public void setDireccion(String direccion)
+	public String getCodigoPostal()
+	public void setCodigoPostal(String codigoPostal)
+	public String getTelefono()
+	public void setTelefono(String telefono)
+	public java.util.List getListaPrestamos() [Signature: ()Ljava/util/List<Lcom/booking/persistencia/Prestamo;>;]
+	public void setListaPrestamos(java.util.List listaPrestamos) [Signature: (Ljava/util/List<Lcom/booking/persistencia/Prestamo;>;)V]
+	public String informacionDetalle()
+	public String toString()
+
+Error obtaining all superclasses of public class com.booking.persistencia.Libro extends com.booking.persistencia.ObjetoBookingGenerico
+implements		java.io.Serializable
+filename		C:\Boo-King-2.4.3\bin\com\booking\persistencia\Libro.class
+compiled from		Libro.java
+compiler version	52.0
+access flags		33
+constant pool		132 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: Libro.java
+	RuntimeVisibleAnnotations
+
+Annotation(s):
+	@Ljavax/persistence/Entity;
+	@Ljavax/persistence/Table;(name=libro)
+
+7 fields:
+	private static final long serialVersionUID = 1
+	private int idLibro [RuntimeVisibleAnnotations]
+	private String titulo [RuntimeVisibleAnnotations]
+	private String autor [RuntimeVisibleAnnotations]
+	private com.booking.modelo.Categoria categoria [RuntimeVisibleAnnotations]
+	private String editorial [RuntimeVisibleAnnotations]
+	private String anoPublicacion [RuntimeVisibleAnnotations]
+
+16 methods:
+	public void <init>()
+	public void <init>(String titulo, String autor, String editorial, com.booking.modelo.Categoria categoria, String anoPublicacion)
+	public int getId()
+	public void setId(int idLibro)
+	public String getTitulo()
+	public void setTitulo(String titulo)
+	public String getAutor()
+	public void setAutor(String autor)
+	public String getEditorial()
+	public void setEditorial(String editorial)
+	public String getAnoPublicacion()
+	public void setAnoPublicacion(String anoPublicacion)
+	public com.booking.modelo.Categoria getCategoria()
+	public void setCategoria(com.booking.modelo.Categoria categoria)
+	public String informacionDetalle()
+	public String toString()
+
+Error obtaining all superclasses of public class com.booking.persistencia.Prestamo extends com.booking.persistencia.ObjetoBookingGenerico
+implements		java.io.Serializable
+filename		C:\Boo-King-2.4.3\bin\com\booking\persistencia\Prestamo.class
+compiled from		Prestamo.java
+compiler version	52.0
+access flags		33
+constant pool		201 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: Prestamo.java
+	RuntimeVisibleAnnotations
+
+Annotation(s):
+	@Ljavax/persistence/Entity;
+	@Ljavax/persistence/Table;(name=prestamo)
+
+6 fields:
+	private static final long serialVersionUID = 1
+	private int idPrestamo [RuntimeVisibleAnnotations]
+	private java.util.Date fecha [RuntimeVisibleAnnotations]
+	private int duracionDias [RuntimeVisibleAnnotations]
+	private com.booking.persistencia.Arrendador arrendador [RuntimeVisibleAnnotations]
+	private java.util.List listaStacks [Signature: Ljava/util/List<Lcom/booking/persistencia/Stack;>;] [RuntimeVisibleAnnotations]
+
+16 methods:
+	public void <init>()
+	public void <init>(java.util.Date fecha, int duracionDias, com.booking.persistencia.Arrendador arrendador)
+	public int getIdPrestamo()
+	public void setIdPrestamo(int idPrestamo)
+	public java.util.Date getFecha()
+	public void setFecha(java.util.Date fecha)
+	public int getDuracionDias()
+	public void setDuracionDias(int duracionDias)
+	public com.booking.persistencia.Arrendador getArrendador()
+	public void setArrendador(com.booking.persistencia.Arrendador arrendador)
+	public java.util.List getListaStacks() [Signature: ()Ljava/util/List<Lcom/booking/persistencia/Stack;>;]
+	public void setListaStacks(java.util.List listaStacks) [Signature: (Ljava/util/List<Lcom/booking/persistencia/Stack;>;)V]
+	public String getNombreArrendador()
+	public boolean hasStacks() [RuntimeVisibleAnnotations]
+	public String informacionDetalle()
+	public String toString()
+
+Error obtaining all superclasses of public class com.booking.persistencia.Stack extends com.booking.persistencia.ObjetoBookingGenerico
+implements		java.io.Serializable
+filename		C:\Boo-King-2.4.3\bin\com\booking\persistencia\Stack.class
+compiled from		Stack.java
+compiler version	52.0
+access flags		33
+constant pool		108 entries
+ACC_SUPER flag		true
+
+Attribute(s):
+	SourceFile: Stack.java
+	RuntimeVisibleAnnotations
+
+Annotation(s):
+	@Ljavax/persistence/Entity;
+	@Ljavax/persistence/Table;(name=stack)
+
+5 fields:
+	private static final long serialVersionUID = 1
+	private int idStack [RuntimeVisibleAnnotations]
+	private int cantidad [RuntimeVisibleAnnotations]
+	private com.booking.persistencia.Prestamo prestamo [RuntimeVisibleAnnotations]
+	private com.booking.persistencia.Libro libro [RuntimeVisibleAnnotations]
+
+12 methods:
+	public void <init>()
+	public void <init>(com.booking.persistencia.Libro libro, int cantidad, com.booking.persistencia.Prestamo prestamo)
+	public int getIdStack()
+	public void setIdStack(int idStack)
+	public int getCantidad()
+	public void setCantidad(int cantidad)
+	public com.booking.persistencia.Prestamo getPrestamo()
+	public void setPrestamo(com.booking.persistencia.Prestamo prestamo)
+	public com.booking.persistencia.Libro getLibro()
+	public void setLibro(com.booking.persistencia.Libro libro)
+	public String informacionDetalle()
+	public String toString()
+

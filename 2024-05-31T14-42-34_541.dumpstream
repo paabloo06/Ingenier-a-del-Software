@@ -1,0 +1,52 @@
+Mon, Mar 31, 2014  13:22:36 Europe/Paris
+
+Nr.   Classes Functions      NCSS  Javadocs Package
+  1        25       101      1388       125 fr.free.jchecs.ai
+  2        25       225      3298       239 fr.free.jchecs.core
+  3        64       213      2869       268 fr.free.jchecs.swg
+  4         4        28      1207        30 fr.free.jchecs.tools
+    --------- --------- --------- ---------
+          118       567      8762       662 Total
+
+ Packages   Classes Functions      NCSS  Javadocs | per
+-------------------------------------------------------------
+     4.00    118.00    567.00   8762.00    662.00 | Project
+              29.50    141.75   2190.50    165.50 | Package
+                         4.81     74.25      5.61 | Class
+                                  15.45      1.17 | Function
+Fri, May 31, 2024  15:23:31 Europe/Madrid
+
+Nr.   Classes Functions      NCSS  Javadocs Package
+  1         5        20       143        19 com.booking.dao
+  2         2        18       211         1 com.booking.ejecutable
+  3         4        51       386        37 com.booking.modelo
+  4         5        64       282        14 com.booking.persistencia
+  5         3         3       102         0 com.booking.reportes
+  6         3        18       196         0 com.booking.vista
+    --------- --------- --------- ---------
+           22       174      1320        71 Total
+
+ Packages   Classes Functions      NCSS  Javadocs | per
+-------------------------------------------------------------
+     6.00     22.00    174.00   1320.00     71.00 | Project
+               3.67     29.00    220.00     11.83 | Package
+                         7.91     60.00      3.23 | Class
+                                   7.59      0.41 | Function
+Fri, May 31, 2024  15:25:41 Europe/Madrid
+
+Nr.   Classes Functions      NCSS  Javadocs Package
+  1         5        20       143        19 com.booking.dao
+  2         2        18       211         1 com.booking.ejecutable
+  3         4        51       386        37 com.booking.modelo
+  4         5        64       282        14 com.booking.persistencia
+  5         3         3       102         0 com.booking.reportes
+  6         3        18       196         0 com.booking.vista
+    --------- --------- --------- ---------
+           22       174      1320        71 Total
+
+ Packages   Classes Functions      NCSS  Javadocs | per
+-------------------------------------------------------------
+     6.00     22.00    174.00   1320.00     71.00 | Project
+               3.67     29.00    220.00     11.83 | Package
+                         7.91     60.00      3.23 | Class
+                                   7.59      0.41 | Function

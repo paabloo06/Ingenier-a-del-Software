@@ -1,0 +1,41 @@
+package cajeroautomatico;
+
+public class CajeroAutomatico {
+
+    private String _codigo;
+    private String _cuenta;
+
+    public CajeroAutomatico(String codigo) {
+        this._codigo = null;
+        _codigo = codigo;
+    }
+
+    public void iniciarSesion(String ccc) {
+        assert (_cuenta == null);
+        _cuenta = ccc; //cuenta del cliente
+    }
+
+    public void cerrarSesion() {
+        assert (_cuenta != null);
+        _cuenta = null; //pone a null la cuenta
+    }
+
+    public boolean solicitarPlanDePensiones(double cantidadInicial, int cantidadAportacionPeriodica, int edadSolicitante, GestorPlanPensiones gestor) {
+        assert (_cuenta != null); // Asegurarse de que hay una sesión iniciada
+        
+        // Utilizar los métodos del GestorPlanPensiones para verificar y abrir el plan de pensiones
+        return gestor.abrirPlan(cantidadInicial, cantidadAportacionPeriodica, edadSolicitante);
+    }
+
+    public boolean realizarRetirada(double cantidad, PasarelaDePago p) {
+        assert (_cuenta != null);
+        if (p.estaBloqueada()) { //Si está bloqueada nada
+            return false;
+        }
+        if (p.tieneSaldo(cantidad)) { //Si está activa y tiene saldo
+            p.retirar(cantidad); //llamo al método retirar dinero
+            return true;
+        }
+        return false;
+    }
+}

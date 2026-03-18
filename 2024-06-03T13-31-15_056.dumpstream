@@ -1,0 +1,142 @@
+package cajeroautomatico;
+
+import static org.easymock.EasyMock.createMock;
+import static org.easymock.EasyMock.expect;
+import static org.easymock.EasyMock.replay;
+import static org.easymock.EasyMock.reset;
+import static org.easymock.EasyMock.verify;
+import org.easymock.IExpectationSetters;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+
+public class CajeroAutomaticoTest {
+
+
+    private CajeroAutomatico CajeroBajoPrueba;
+    private GestorPlanPensiones mockGestor;
+    private PasarelaDePago mock;
+
+    @Test
+    public void testRealizarRetirada() {
+        System.out.println("Caso 1: pasarela no bloqueada y cuenta con saldo");
+
+        /* (1) Se crea el objeto de la clase a probar y un mock para simular la
+        clase PasarelaPago
+         */
+        CajeroBajoPrueba = new CajeroAutomatico("1111111111");
+        CajeroBajoPrueba.iniciarSesion("1234");
+        mock = createMock(PasarelaDePago.class);
+        /* (2) En estado de "grabación", se le dice al objeto Simulado las
+        llamadas que debe esperar y cómo responder a ellas.
+         */
+        expect(mock.estaBloqueada()).andReturn(false);
+        expect(mock.tieneSaldo(500)).andReturn(true);
+        mock.retirar(500);
+        /* (3) Ahora, el objeto simulado comienza a esperar las llamadas
+         */
+        replay(mock);
+        /* (4) Se programa la prueba del objeto de la clase a probar
+         */
+        boolean result = CajeroBajoPrueba.realizarRetirada(500, mock);
+        assertTrue(result);
+        /* (5) Forzamos a que la ausencia de todas las llamadas previstas sea
+        también un error
+         */
+        verify(mock);
+        /* (6) Se ejecutan instrucciones necesarias de finalización de la prueba
+        y se resetea el mock
+         */
+        CajeroBajoPrueba.cerrarSesion();
+        reset(mock);
+    }
+
+
+    @Test
+    public void testSolicitarPlanPensiones() {
+        System.out.println("Caso Valido: Cantidad inicial y edad al limite sin aportaciones");
+        CajeroBajoPrueba = new CajeroAutomatico("1111111111");
+        mockGestor = createMock(GestorPlanPensiones.class);
+        CajeroBajoPrueba.iniciarSesion("1234");
+
+        expect(mockGestor.tieneCantidadInicial(1000)).andReturn(true);
+        expect(mockGestor.aportacionesPeriodicas(100)).andReturn(true);
+        expect(mockGestor.edad(30)).andReturn(true);
+        expect(mockGestor.abrirPlan(1000, 0, 30)).andReturn(true);
+
+        replay(mockGestor);
+
+        boolean result = CajeroBajoPrueba.solicitarPlanDePensiones(1000, 100, 30, mockGestor);
+        assertTrue(result);
+
+        verify(mockGestor);
+        CajeroBajoPrueba.cerrarSesion();
+        reset(mockGestor);
+    }
+
+    @Test
+    public void testSolicitarPlanPensionesCantidadInicialInvalida() {
+        System.out.println("Caso NO Valido: Cantidad inicial invalida");
+        CajeroBajoPrueba = new CajeroAutomatico("1111111111");
+        mockGestor = createMock(GestorPlanPensiones.class);
+        CajeroBajoPrueba.iniciarSesion("1234");
+
+        expect(mockGestor.tieneCantidadInicial(900)).andReturn(false);
+        expect(mockGestor.aportacionesPeriodicas(100)).andReturn(true);
+        expect(mockGestor.edad(30)).andReturn(true);
+        expect(mockGestor.abrirPlan(900, 0, 30)).andReturn(false);
+
+        replay(mockGestor);
+
+        boolean result = CajeroBajoPrueba.solicitarPlanDePensiones(900, 0, 30, mockGestor);
+        assertFalse(result);
+
+        verify(mockGestor);
+        CajeroBajoPrueba.cerrarSesion();
+        reset(mockGestor);
+    }
+
+    @Test
+    public void testSolicitarPlanPensionesEdadInvalida() {
+        System.out.println("Caso NO Valido: Edad invalida");
+        CajeroBajoPrueba = new CajeroAutomatico("1111111111");
+        mockGestor = createMock(GestorPlanPensiones.class);
+        CajeroBajoPrueba.iniciarSesion("1234");
+
+        expect(mockGestor.tieneCantidadInicial(1000)).andReturn(true);
+        expect(mockGestor.aportacionesPeriodicas(100)).andReturn(true);
+        expect(mockGestor.edad(20)).andReturn(false);
+        expect(mockGestor.abrirPlan(1000, 0, 20)).andReturn(false);
+
+        replay(mockGestor);
+
+        boolean result = CajeroBajoPrueba.solicitarPlanDePensiones(1000, 0, 20, mockGestor);
+        assertFalse(result);
+
+        verify(mockGestor);
+        CajeroBajoPrueba.cerrarSesion();
+        reset(mockGestor);
+    }
+
+    @Test
+    public void testSolicitarPlanPensionesAportacionesInvalidas() {
+        System.out.println("Caso NO Valido: Aportaciones invalidas");
+        CajeroBajoPrueba = new CajeroAutomatico("1111111111");
+        mockGestor = createMock(GestorPlanPensiones.class);
+        CajeroBajoPrueba.iniciarSesion("1234");
+
+        expect(mockGestor.tieneCantidadInicial(1000)).andReturn(true);
+        expect(mockGestor.aportacionesPeriodicas(150)).andReturn(false);
+        expect(mockGestor.edad(30)).andReturn(true);
+        expect(mockGestor.abrirPlan(1000, 150, 30)).andReturn(false);
+
+        replay(mockGestor);
+
+        boolean result = CajeroBajoPrueba.solicitarPlanDePensiones(1000, 150, 30, mockGestor);
+        assertFalse(result);
+
+        verify(mockGestor);
+        CajeroBajoPrueba.cerrarSesion();
+        reset(mockGestor);
+    }
+}

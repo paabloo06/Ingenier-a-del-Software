@@ -1,0 +1,70 @@
+package utilidadesarray;
+// Programa en Java que permite buscar un elemento en un array dado, ordenar
+// el array de menor a mayor e imprimirlo
+// FJBG - Ing. Software - GISI â€“ 2024
+public class UtilidadesArray {
+    // BÃºsqueda lineal de un elemento en un array
+    static void linearSearch(int arr[], int x) {
+        int n = arr.length;
+        int index = -1;
+        for (int i = 0; i < n; i++) {
+            // Return the index of the element if the element
+            // is found
+            if (arr[i] == x) {
+                index = i;
+            }
+        }
+        if (index == -1) {
+            System.out.println("El elemento buscado no se encuentra en el array");
+        } else {
+            System.out.println("Elemento encontrado en la posicion " + index);
+        }
+    }
+
+    // OrdenaciÃ³n de elementos por inserciÃ³n
+    static void insertionSorting(int arr[]) {
+        int n = arr.length;
+        for (int i = 1; i < n; ++i) {
+            int key = arr[i];
+            int j = i - 1;
+            // Move elements of arr[0..i-1], that are
+            // greater than key, to one position ahead
+            // of their current position
+            while (j >= 0 && arr[j] > key) {
+                arr[j + 1] = arr[j];
+                j = j - 1;
+            }
+            arr[j + 1] = key;
+        }
+    }
+    // Utilidad para imprimir un array dado
+    static void printArray(int arr[]) {
+        int n = arr.length;
+        for (int i = 0; i < n; ++i) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+    // Se incluye el main para comprobar cÃ³mo funciona el programa. No es necesario
+    // realizar tests para este mÃ©todo.
+    public static void main(String[] args) {
+        int [] arr = {};
+        int[] arr1 = {2, 4, 15, 7, 5, 20, 1, 12, 6};
+        int x1 = 8;
+        int x2 = 8;
+        int x3 = 2;
+        int x4 = 7;
+        System.out.println("Buscando el elemento " + x1);
+        linearSearch(arr, x1);
+        System.out.println("Buscando el elemento " + x2);
+        linearSearch(arr1, x2);
+        System.out.println("Buscando el elemento " + x3);
+        linearSearch(arr1, x3);
+        System.out.println("Buscando el elemento " + x4);
+        linearSearch(arr1, x4);
+        System.out.println("Imprimiendo arr");
+        printArray(arr);
+        System.out.println("Imprimiendo arr1");
+        printArray(arr1);
+    }
+}

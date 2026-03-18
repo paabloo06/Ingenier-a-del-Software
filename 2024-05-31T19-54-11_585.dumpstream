@@ -1,0 +1,152 @@
+package utilidadesarray;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import utilidadesarray.UtilidadesArray;
+
+public class UtilidadesArrayTest {
+
+    @Test
+    public void testLinearSearch_NoSeEjecutaBucle() {
+        int[] arr = {};
+        int x = 8;
+        String expectedIndex = "El elemento buscado no se encuentra en el array";
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.linearSearch(arr, x);
+        System.setOut(originalOut);
+        String actualIndex = outputStream.toString().trim();
+        
+        assertEquals(expectedIndex, actualIndex);
+    }
+
+    @Test
+    public void testLinearSearch_BucleNoEncuentraElemento() {
+        int[] arr = {2, 4, 15, 7, 5, 20, 1, 12, 6};
+        int x = 8;
+        String expectedIndex = "El elemento buscado no se encuentra en el array";
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.linearSearch(arr, x);
+        System.setOut(originalOut);
+        String actualIndex = outputStream.toString().trim();
+        
+        assertEquals(expectedIndex, actualIndex);
+    }
+    
+    @Test
+    public void testLinearSearch_BuccleEncuentraElemento() {
+        int[] arr = {2, 4, 15, 7, 5, 20, 1, 12, 6};
+        int x = 4;
+        String expectedIndex = "Elemento encontrado en la posicion 1";
+
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.linearSearch(arr, x);
+        System.setOut(originalOut);
+        String actualIndex = outputStream.toString().trim();
+        
+        assertEquals(expectedIndex, actualIndex);
+    }
+    
+    @Test
+    public void testLinearSearch_NoSeEjecutaBucleNiMenosUno() {
+        int[] arr = {};
+        int x = 2;
+        String expectedIndex = "Elemento encontrado en la posicion 0";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.linearSearch(arr, x);
+        System.setOut(originalOut);
+        String actualIndex = outputStream.toString().trim();
+        
+        assertEquals(expectedIndex, actualIndex);
+    }
+
+    @Test
+    public void testInsertionSorting_ArrayVacio() {
+        int[] arr = {};
+        int[] expected = {};
+        UtilidadesArray.insertionSorting(arr);
+        assertArrayEquals(expected, arr);
+    }
+
+    @Test
+    public void testInsertionSorting_ArrayOrdenadoAscendente() {
+        int[] arr = {1, 2, 3, 4, 5};
+        int[] expected = {1, 2, 3, 4, 5};
+        UtilidadesArray.insertionSorting(arr);
+        assertArrayEquals(expected, arr);
+    }
+
+    @Test
+    public void testInsertionSorting_ArrayDesordenado() {
+        int[] arr = {5, 3, 2, 4, 1};
+        int[] expected = {1, 2, 3, 4, 5};
+        UtilidadesArray.insertionSorting(arr);
+        assertArrayEquals(expected, arr);
+    }
+
+    @Test
+    public void testPrintArray_ArrayVacio() {
+        int[] arr = {};
+        String expected = "";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.printArray(arr);
+        System.setOut(originalOut);
+        String actual = outputStream.toString().trim();
+        
+        assertEquals(expected, actual);
+        assertDoesNotThrow(() -> UtilidadesArray.printArray(arr));
+    }
+
+    @Test
+    public void testPrintArray_ArrayConElementos() {
+        int[] arr = {2, 4, 15, 7, 5, 20, 1, 12, 3, 6};
+        String expected = "2 4 15 7 5 20 1 12 3 6";
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;  
+        System.setOut(new PrintStream(outputStream));
+        UtilidadesArray.printArray(arr);
+        System.setOut(originalOut);
+        String actual = outputStream.toString().trim();
+
+        assertEquals(expected, actual);
+    }
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

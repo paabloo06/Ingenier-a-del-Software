@@ -1,0 +1,2 @@
+java -classpath .;c:\javancss-32.53\lib\javancss.jar;c:\javancss-32.53\lib\ccl.jar;c:\javancss-32.53\lib\jhbasic.jar;c:\javancss-32.53\lib\javacc.jar javancss.Main -all -recursive -gui C:\Boo-King-2.4.3\src
+

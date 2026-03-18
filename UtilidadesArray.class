@@ -1,0 +1,5 @@
+# Created at 2024-06-03T14:48:54.124
+Boot Manifest-JAR contains absolute paths in classpath 'D:\GISI\2\1 - INGENIERIA DEL SOFTWARE\PECL2 23-24\PRACTICA 2\CajeroAutomatico\CajeroAutomatico\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+'other' has different root
+
